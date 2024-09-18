@@ -21,7 +21,10 @@ jobs:
           echo "username=${{ secrets.USERNAME }}" >> credentials.ini
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
       
-      # Step 3: Construcción del container Docker
+      # Step 3: Listar archivos en la raíz
+      - name: Listar archivos en la raíz
+        run: ls -l
+
+      # Step 4: Construcción del container Docker
       - name: Build docker image
         run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
-
