@@ -1,0 +1,26 @@
+name: CI Pipeline for Ines
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Pruebas de SAST (mocked)
+      - name: Pruebas de SAST
+        run: echo "Ejecución de pruebas de SAST"
+      
+      # Step 2: Crear archivo de credenciales
+      - name: Crear archivo de credenciales
+        run: |
+          echo "[credentials]" > credentials.ini
+          echo "username=${{ secrets.USERNAME }}" >> credentials.ini
+          echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
+      
+      # Step 3: Construcción del container Docker
+      - name: Build docker image
+        run: docker build -t devops_ws . --tag devops_ws_:$(date +%s)
