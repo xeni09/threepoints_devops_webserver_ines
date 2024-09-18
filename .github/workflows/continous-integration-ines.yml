@@ -26,6 +26,6 @@ jobs:
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
   
       
-      # Step 3: Construcción del container Docker desde el directorio raíz
+      # Step 3: Construcción del container Docker desde el directorio raíz-2
       - name: Build docker image
         run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
