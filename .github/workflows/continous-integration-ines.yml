@@ -21,10 +21,11 @@ jobs:
           echo "username=${{ secrets.USERNAME }}" >> credentials.ini
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
       
-      # Step 3: Listar archivos en la raíz
+      # Step 3: Listar archivos en la raíz para verificar que Dockerfile está presente
       - name: Listar archivos en la raíz
         run: ls -l
-
-      # Step 4: Construcción del container Docker
+      
+      # Step 4: Construcción del container Docker desde el directorio raíz
       - name: Build docker image
+        working-directory: .  # Asegúrate de que está en la raíz
         run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
