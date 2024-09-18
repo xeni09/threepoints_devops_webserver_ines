@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      # Step 0: Checkout del código del repositorio
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
       # Step 1: Pruebas de SAST (mocked)
       - name: Pruebas de SAST
         run: echo "Ejecución de pruebas de SAST"
@@ -27,5 +31,4 @@ jobs:
       
       # Step 4: Construcción del container Docker desde el directorio raíz
       - name: Build docker image
-        working-directory: .  # Asegúrate de que está en la raíz
         run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
