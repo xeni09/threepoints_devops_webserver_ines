@@ -31,4 +31,4 @@ jobs:
       
       # Step 4: Construcción del container Docker desde el directorio raíz
       - name: Build docker image
-        run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
+        run: docker build -t devops_ws . --tag devops_ws_:$(date +%s)
