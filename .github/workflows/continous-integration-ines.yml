@@ -1,13 +1,13 @@
 name: CI Pipeline Ines
 
 
-# Parte del primer ejercio
+# Parte del primer ejercicio
 # on:
 #   push:
 #     branches:
 #       - master
 
-# Parte del segundo ejercio.
+# Parte del segundo ejercicio
 on:
   push:
     branches:
