@@ -1,9 +1,20 @@
 name: CI Pipeline Ines
 
+
+# Parte del primer ejercio
+# on:
+#   push:
+#     branches:
+#       - master
+
+# Parte del segundo ejercio.
 on:
   push:
     branches:
       - master
+      - feature-*
+      - hotfix-*
+
 
 jobs:
   build:
@@ -26,6 +37,7 @@ jobs:
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
   
       
-      # Step 3: Construcción del container Docker desde el directorio raíz-2
+      # Step 3: Construcción del container Docker desde el directorio raíz
       - name: Build docker image
         run: docker build -t devops_ws . --tag devops_ws:$(date +%s)
+
