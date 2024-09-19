@@ -1,4 +1,4 @@
-name: Pull Request Quality Gate - Ines :)!
+name: Pull Request Quality Gate - Ines :)
 
 on:
   pull_request:
